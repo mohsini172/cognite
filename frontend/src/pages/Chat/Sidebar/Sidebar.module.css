@@ -1,0 +1,71 @@
+.container {
+    height: 100%;
+    background-color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.header {
+    background-color: #ededed;
+    padding: 10px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 63px;
+}
+
+.icon {
+    padding: 8px;
+    opacity: 0.4;
+    cursor: pointer;
+}
+
+
+.contacts {
+    transform: translateX(-100%);
+    transition-duration: 300ms;
+    position: absolute;
+    width: 100%;
+    background-color: white;
+    height: 100%;
+}
+
+.newMessageHeader {
+    background-color: #128C7E;
+    color: white;
+    height: 63px;
+    display: flex;
+    align-items: center;
+    z-index: 2;
+    padding: 0 15px;
+    justify-content: space-between;
+}
+
+.newMessageHeader img {
+    cursor: pointer;
+}
+
+.contactsVisible {
+    transform: translateX(0%);
+    position: relative;
+}
+
+.contact {
+    padding-left: 15px;
+    padding-right: 15px;
+    height: 72px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-bottom: 1px solid #f2f2f2;
+}
+
+.contactName {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.lastMessage {
+    font-size: 14px;
+    color: #000000cc;
+}

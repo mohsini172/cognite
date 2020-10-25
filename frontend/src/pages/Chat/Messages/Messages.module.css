@@ -1,0 +1,84 @@
+.container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+    background-color: #e5ddd5;
+}
+
+.header {
+    background-color: #ededed;
+    padding: 10px 16px;
+    height: 63px;
+    display: flex;
+    align-items: center;
+    border-left: 1px solid #00000014;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.texts {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: auto;
+    margin: 1rem 0;
+}
+
+.leftTextContainer {
+    margin-top: 5px;
+    margin-left: 9%;
+    max-width: 65%;
+    z-index: 1;
+}
+
+.leftText {
+    display: inline-block;
+    background-color: white;
+    padding: 9px 9px 9px 9px;
+    border-radius: 0 7.5px 7.5px 7.5px;
+}
+
+.rightTextContainer {
+    margin-top: 5px;
+    margin-right: 9%;
+    max-width: 65%;
+    z-index: 1;
+    align-self: flex-end;
+}
+
+.rightText {
+    display: inline-block;
+    background-color: #DCF8C6;
+    padding: 9px 9px 9px 9px;
+    border-radius: 7.5px 7.5px 0 7.5px;
+}
+
+.background {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: url('/background.png');
+    background-repeat: repeat;
+    opacity: 0.1;
+}
+
+.footer {
+    background-color: #ededed;
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    border-left: 1px solid #00000014;
+    z-index: 1;
+}
+
+.sendIcon {
+    margin-left: 10px;
+    filter: invert(66%) sepia(70%) saturate(506%) hue-rotate(86deg) brightness(89%) contrast(92%);
+}
+
+.footer input {
+    flex: 1;
+}

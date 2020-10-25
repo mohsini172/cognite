@@ -1,0 +1,14 @@
+.chatContainer {
+    display: flex;
+    height: 100%;
+}
+
+.sidebar{
+    flex: 30%;
+    height: 100%;
+}
+
+.messages {
+    flex: 70%;
+    height: 100%;
+}
