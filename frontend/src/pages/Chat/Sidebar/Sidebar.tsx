@@ -11,6 +11,12 @@ export function Sidebar() {
     const chats = useObservable<Chat[]>(chats$);
     const user = useObservable<User>(user$);
     const [showContacts, setShowContacts] = useState(false);
+
+    function onCreateChat(userId: string, contactId: string) {
+        createChat(userId, contactId);
+        setShowContacts(false);
+    }
+
     return (
         <div className={styles.container}>
             <div className={`${styles.contacts} ${showContacts ? styles.contactsVisible : ''}`}>
@@ -21,7 +27,7 @@ export function Sidebar() {
                 {
                     contacts?.map((contact, index) => (
                         contact?._id !== user?._id &&
-                        <div onClick={() => createChat(user?._id || "", contact._id)} key={index} className={styles.contact}>
+                        <div onClick={() => onCreateChat(user?._id || "", contact._id)} key={index} className={styles.contact}>
                             <div className={styles.contactName}>{contact.name}</div>
                         </div>
                     ))

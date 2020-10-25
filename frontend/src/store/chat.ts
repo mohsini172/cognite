@@ -42,9 +42,7 @@ export async function createChat(userId: string, contactId: string) {
         if (status === 201) {
             chats.next([...chats.value, data]);
         }
-        if (chats.value.length > 0) {
-            changeActiveChat(userId, chats.value[0]._id)
-        }
+        changeActiveChat(userId, data._id)
     } catch (error) {
         console.error(error);
     }
