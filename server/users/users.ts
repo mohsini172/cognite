@@ -8,7 +8,7 @@ router.get('/', async (req: any, res: any) => {
         return res.status(200).send(user);
     } catch (error) {
         console.error(error)
-        return res.status(500).send("Something went wrong while registering");
+        return res.status(500).send("Something went wrong while getting users");
     }
 });
 
