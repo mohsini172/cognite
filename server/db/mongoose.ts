@@ -4,7 +4,7 @@ mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
 
 mongoose.connect(
-  "mongodb+srv://admin:Pa$$w0rd!@cluster0.b3rgd.mongodb.net/cognite?retryWrites=true&w=majority"
+  "mongodb://localhost/chat"
 );
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
