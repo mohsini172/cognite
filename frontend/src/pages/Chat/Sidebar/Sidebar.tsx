@@ -40,11 +40,15 @@ export function Sidebar() {
                     <img src="/exit.svg" alt="" />
                 </div>
                 {user?.name}
-                <div className={styles.icon} onClick={() => { setShowContacts(!showContacts); listContacts() } }>
+                <div className={styles.icon} onClick={() => { setShowContacts(!showContacts); listContacts() }}>
                     <img src="/chat.svg" alt="" />
                 </div>
             </div>
             <div>
+                {
+                    chats?.length === 0 &&
+                    <div className={styles.emptyInbox}>No chats</div>
+                }
                 {
                     chats?.map((chat, index) => (
                         <div key={index} className={styles.contact} onClick={() => changeActiveChat(user?._id || "", chat._id)}>

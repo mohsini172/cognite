@@ -36,24 +36,29 @@ export function Messages() {
             <div className={styles.background}></div>
             <div className={styles.texts}>
                 {
+                    !activeChat && <div className={styles.noChatSelected}>No chat selected.</div>
+                }
+                {
                     messages?.map((message, index) => (
                         message.from === user?._id ? (
                             <div key={index} className={styles.rightTextContainer} ref={(el) => { setLastMessage(el); }}>
                                 <div className={styles.rightText}>{message.value}</div>
                             </div>
                         ) : (
-                                <div key={index} className={styles.leftTextContainer} ref={(el) => { setLastMessage(el); }}>
-                                    <div className={styles.leftText}>{message.value}</div>
-                                </div>
-                            )
+                            <div key={index} className={styles.leftTextContainer} ref={(el) => { setLastMessage(el); }}>
+                                <div className={styles.leftText}>{message.value}</div>
+                            </div>
+                        )
                     ))
                 }
 
             </div>
-            <form onSubmit={(e) => onSubmit(e)} className={styles.footer}>
-                <input value={message} required={true} onChange={(e) => setMessage(e.target.value)} type="text" className="input" placeholder="Type a message" />
-                <img onClick={(e) => onSubmit(e)} className={styles.sendIcon} src="/send.svg" alt="" />
-            </form>
+            {
+                !!activeChat && <form onSubmit={(e) => onSubmit(e)} className={styles.footer}>
+                    <input value={message} required={true} onChange={(e) => setMessage(e.target.value)} type="text" className="input" placeholder="Type a message" />
+                    <img onClick={(e) => onSubmit(e)} className={styles.sendIcon} src="/send.svg" alt="" />
+                </form>
+            }
         </div>
     )
 }

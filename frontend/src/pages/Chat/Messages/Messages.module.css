@@ -82,3 +82,9 @@
 .footer input {
     flex: 1;
 }
+
+.noChatSelected {
+    margin-top: calc(40vh - 1rem);
+    color: grey;
+    text-align: center;
+}

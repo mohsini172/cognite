@@ -69,3 +69,9 @@
     font-size: 14px;
     color: #000000cc;
 }
+
+.emptyInbox {
+    text-align: center;
+    color: grey;
+    margin-top: 40vh;
+}
