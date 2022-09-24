@@ -27,14 +27,14 @@ code {
 .input {
   border-radius: 21px;
   border: none;
-  padding: 9px 12px 11px;
+  padding: 12px;
 }
 
 .btn {
   border-radius: 21px;
   border: none;
   color: white;
-  padding: 11px;
+  padding: 12px;
   background-color: #25D366;
 }
 

@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Chat } from '../../../models/chat.model';
 import { User } from '../../../models/user.model';
 import { useObservable } from '../../../store';
 import { changeActiveChat, chats$, createChat } from '../../../store/chat';
-import { contacts$, logout, user$ } from '../../../store/user';
+import { contacts$, listContacts, logout, user$ } from '../../../store/user';
 import styles from './Sidebar.module.css';
 
 export function Sidebar() {
@@ -16,6 +16,8 @@ export function Sidebar() {
         createChat(userId, contactId);
         setShowContacts(false);
     }
+
+    useEffect(() => { listContacts() }, [])
 
     return (
         <div className={styles.container}>
@@ -38,7 +40,7 @@ export function Sidebar() {
                     <img src="/exit.svg" alt="" />
                 </div>
                 {user?.name}
-                <div className={styles.icon} onClick={() => setShowContacts(!showContacts)}>
+                <div className={styles.icon} onClick={() => { setShowContacts(!showContacts); listContacts() } }>
                     <img src="/chat.svg" alt="" />
                 </div>
             </div>
