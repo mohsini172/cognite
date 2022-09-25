@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Chat } from '../../../models/chat.model';
 import { User } from '../../../models/user.model';
 import { useObservable } from '../../../store';
-import { activeChat$, changeActiveChat, chats$, createChat } from '../../../store/chat';
+import { activeChat$, changeActiveChat, chats$, createChat, resetChat } from '../../../store/chat';
 import { contacts$, listContacts, logout, user$ } from '../../../store/user';
 import styles from './Sidebar.module.css';
 
@@ -37,7 +37,7 @@ export function Sidebar() {
                 }
             </div>
             <div className={styles.header}>
-                <div className={styles.icon} onClick={() => logout()}>
+                <div className={styles.icon} onClick={() => {logout(); resetChat();}}>
                     <img src="/exit.svg" alt="" />
                 </div>
                 {user?.name}

@@ -61,6 +61,12 @@ export async function changeActiveChat(userId: string, chatId: string) {
     }
 }
 
+export async function resetChat() {
+    activeChat.next(null);
+    messages.next([])
+    chats.next([]);
+}
+
 export async function send(from: string, to: string, value: string) {
     socket.emit('send', { from, to, value });
     messages.next([...messages.value, { from, value, date: new Date() }])
