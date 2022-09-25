@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Chat } from '../../../models/chat.model';
 import { User } from '../../../models/user.model';
 import { useObservable } from '../../../store';
-import { changeActiveChat, chats$, createChat } from '../../../store/chat';
+import { activeChat$, changeActiveChat, chats$, createChat } from '../../../store/chat';
 import { contacts$, listContacts, logout, user$ } from '../../../store/user';
 import styles from './Sidebar.module.css';
 
@@ -10,6 +10,7 @@ export function Sidebar() {
     const contacts = useObservable<User[]>(contacts$);
     const chats = useObservable<Chat[]>(chats$);
     const user = useObservable<User>(user$);
+    const activeChat = useObservable<User>(activeChat$);
     const [showContacts, setShowContacts] = useState(false);
 
     function onCreateChat(userId: string, contactId: string) {
@@ -51,7 +52,7 @@ export function Sidebar() {
                 }
                 {
                     chats?.map((chat, index) => (
-                        <div key={index} className={styles.contact} onClick={() => changeActiveChat(user?._id || "", chat._id)}>
+                        <div key={index} className={`${styles.contact} ${activeChat?._id === chat._id ? styles.active : ''}`} onClick={() => changeActiveChat(user?._id || "", chat._id)}>
                             {console.log(chat)}
                             <div className={styles.contactName}>{chat?.user1?._id !== user?._id ? chat?.user1?.name : chat?.user2?.name}</div>
                             <div className={styles.lastMessage}>{chat?.texts?.length > 0 ? chat?.texts[chat?.texts?.length - 1].value : ''}</div>

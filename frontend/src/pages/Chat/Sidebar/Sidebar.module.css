@@ -58,6 +58,7 @@
     flex-direction: column;
     justify-content: center;
     border-bottom: 1px solid #f2f2f2;
+    cursor: pointer;
 }
 
 .contactName {
@@ -74,4 +75,8 @@
     text-align: center;
     color: grey;
     margin-top: 40vh;
+}
+
+.active {
+    background-color: #f0f2f5;
 }
